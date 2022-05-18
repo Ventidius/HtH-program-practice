@@ -1,44 +1,50 @@
-import random
+import random 
 # hero.py
 class Hero:
   # We want our hero to have a default "starting_health",
   # so we can set that in the function header.
   def __init__(self, name, starting_health=100):
-    '''Instance properties:
-      name: String
-      starting_health: Integer
-      current_health: Integer
-    '''
+     '''Instance properties:
+       name: String
+       starting_health: Integer
+       current_health: Integer
+     '''
 
-    # we know the name of our hero, so we assign it here
-    self.name = name
-    # similarly, our starting health is passed in, just like name
-    self.starting_health = starting_health
-    # when a hero is created, their current health is
-    # always the same as their starting health (no damage taken yet!)
-    self.current_health = starting_health
+     # we know the name of our hero, so we assign it here
+     self.name = name
+     # similarly, our starting health is passed in, just like name
+     self.starting_health = starting_health
+     # when a hero is created, their current health is
+     # always the same as their starting health (no damage taken yet!)
+     self.current_health = starting_health
 
-Super_Mark = Hero("Mark", 600)
-print(Super_Mark.current_health)
+  def battle(self, opponent):
+      ''' Current Hero will take turns fighting the opponent hero passed in.
+      '''
+      # TODO: Fight each hero until a victor emerges.
+      # Phases to implement:
+      #1) randomly choose winner, print the name of the victor
+      # Hint: Look into random library, more specifically the choice method
+      
+      hero_names = []
+      hero_names.append(self.name)
+      hero_names.append(opponent.name)
+      
+      winner = random.choice(hero_names)
+      loser = []
 
-def battle(self, opponent):
-  ''' Current Hero will take turns fighting the opponent hero passed in.
-  '''
-  heroes = []
-  heroes.append(self.name)
-  heroes.append(opponent.name)
-  winner = random.choice(heroes) 
-  for hero in heroes
+      for name in hero_names:
+             if name != winner:
+               loser.append(name)
+      print(f'{winner} has defeated {loser}')
+       
+      return winner 
 
-  # TODO: Fight each hero until a victor emerges.
-  # Phases to implement:
-  #1) randomly choose winner, print the name of the victor
-  # Hint: Look into random library, more specifically the choice method
 
-if __name__ == "__main__":
-    # If you run this file from the terminal
-    # this block is executed.
-    hero1 = Hero("Wonder Woman")
-    hero2 = Hero("Dumbledore")
+hero1 = Hero("Wonder Woman")
+hero2 = Hero("Dumbledore")
 
-    hero1.fight(hero2)
+hero1.battle(hero2)
+
+
+
